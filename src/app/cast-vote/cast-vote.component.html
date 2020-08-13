@@ -1,0 +1,47 @@
+<div class="container" *ngIf="!this.alreadyVoted">
+
+	<br>
+	<br>
+
+	<div class="container">
+			<div class="row text-capitalize text-center">
+				<h2 class="text-primary" *ngIf="this.polls.topic">{{this.polls.topic}}</h2>
+			</div>
+		</div>
+
+	<br>
+
+	<div class="container">
+		<br>
+		<ul class="list-group">
+			<li class="list-group-item " [ngClass]="this.vote[i]? 'active': ''"
+				*ngFor="let items of this.polls.options; let i = index;" (click)="castVote(i, this.polls.options[i])">
+        {{i+':\t'+items.choice+' ✔️ ✖️'}}
+        <td><img [src]="(items.imgpath)" alt="" style="width:60px; height:60px;"></td>
+          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="this.updateVote(items)">Submit My
+            Vote</button>
+          </li>
+		</ul>
+	</div>
+
+	<br>
+	<br>
+
+
+
+	<br>
+	<br>
+</div>
+
+<div class="container  " *ngIf="this.alreadyVoted">
+	<div class="row  py-5">
+		<div class="col text-center">
+			<h1 class="text-capitalize text-center text-danger">You have already voted</h1>
+			<br>
+			<button type="button" class="btn btn-outline-primary btn-lg " routerLink="/">
+				<span class="inner--text">Home </span>
+				<span class="inner--icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+			</button>
+		</div>
+	</div>
+</div>

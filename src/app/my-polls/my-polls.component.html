@@ -1,0 +1,14 @@
+<div class="container">
+  <br>
+  <h1 class="text-center text-capitalize text-primary">Your Lists</h1>
+</div>
+<hr>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between  text-capitalize text-secondary " *ngFor="let item of this.items;let i = index">
+      {{item.topic}}
+      <button type="button" class="btn btn-outline-primary " (click)="this.showResults(item)">show</button>
+      <button type="button" class="btn btn-outline-primary " (click)="this.showVotes(item)">vote</button>
+    </li>
+  </ul>
+</div>
